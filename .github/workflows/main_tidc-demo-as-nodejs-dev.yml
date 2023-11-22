@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ${{ secrets.AzureAppService_ContainerUsername_8bc5b36c96ef4bd59f7222a934b33097 }}/dmakeroam/nodejs:${{ github.sha }}
+        tags: ${{ secrets.AzureAppService_ContainerUsername_8bc5b36c96ef4bd59f7222a934b33097 }}/nodejs:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'tidc-demo-as-nodejs-dev'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_63ccbc83a9254e41b40d13ef8cf44b5c }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8bc5b36c96ef4bd59f7222a934b33097 }}/dmakeroam/nodejs:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8bc5b36c96ef4bd59f7222a934b33097 }}/nodejs:${{ github.sha }}'
